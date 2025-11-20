@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ételek listája</title>
-</head>
-<body>
-    <h1>Ételek és hozzávalók</h1>
+@extends('layout')
+
+@section('content')
+    <h1>Ételek listája</h1>
     @foreach($etelek as $etel)
-        <h2>{{ $etel->nev }}</h2>
-        <ul>
-            @foreach($etel->hozzavalok as $hozzavalo)
-                <li>{{ $hozzavalo->nev }}: {{ $hozzavalo->pivot->mennyiseg ?? '' }} {{ $hozzavalo->pivot->egyseg ?? '' }}</li>
-            @endforeach
-        </ul>
+        <div class="etel-card">
+            <h2>{{ $etel->nev }}</h2>
+            <ul>
+                @foreach($etel->hozzavalok as $hozzavalo)
+                    <li>{{ $hozzavalo->nev }}{{ $hozzavalo->pivot->egyseg ? ': ' . $hozzavalo->pivot->mennyiseg . ' ' . $hozzavalo->pivot->egyseg : '' }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endforeach
-</body>
-</html>
+@endsection

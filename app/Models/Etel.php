@@ -9,7 +9,7 @@ class Etel extends Model
 {
     use HasFactory;
 
-    protected $table = 'etel'; // ez a tábla neve az adatbázisban
+    protected $table = 'etel';
 
     public function hozzavalok()
     {
