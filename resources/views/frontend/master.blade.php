@@ -31,7 +31,7 @@
                         </li>
 
 
-                        <li class="nav-item dropdown" id="receptek-dropdown">
+                        <li class="nav-item dropdown {{ request()->is('receptek*') || request()->is('kategoriak/*') ? 'active' : '' }}">
     <a class="nav-link dropdown-toggle" href="{{ url('/receptek') }}" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
         Receptek
     </a>

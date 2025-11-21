@@ -59,7 +59,7 @@ use
             </a>
 
         </div>
-        <div class="position-absolute" style="top: 35%; left: 9%;">
+        <div class="position-absolute" style="top: 35%; left: 20%;">
         <a href="{{ url('/receptek/'.$randomEtelek[0]->id) }}" class="bt-megnezem">Megnézem</a>
     </div>
 
