@@ -44,15 +44,21 @@
     </div>
 </li>
 
-                        <li class="nav-item {{ request()->routeIs('services') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url ('/services') }}">Services</a>
-                        </li>
+                       
                         <li class="nav-item {{ request()->routeIs('blog') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ url ('/blog') }}">Blog</a>
                      </li>
                      <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url ('/contact') }}">Kapcsolat</a>
                         </li>
+                        @auth
+    <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('etelek.create') ? 'active' : '' }}" href="{{ route('etelek.create') }}">Új recept feltöltése</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('etelek.sajat') ? 'active' : '' }}" href="{{ route('etelek.sajat') }}">Saját receptjeim</a>
+    </li>
+@endauth
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                    

@@ -64,7 +64,13 @@ Route::middleware('auth')->group(function() {
     Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
     Route::get('/messages/create', [MessageController::class, 'create'])->name('messages.create');
     Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+
+    Route::get('/etelek/create', [EtelController::class, 'create'])->name('etelek.create');
+    Route::post('/etelek/store', [EtelController::class, 'storeNew'])->name('etelek.storeNew');
+    Route::get('/etelek/sajat', [EtelController::class, 'sajatReceptjeim'])->name('etelek.sajat');
+    Route::delete('/etelek/{id}', [EtelController::class, 'destroy'])->name('etelek.destroy');
 });
+
 
 
 Route::get('/logout-page', function () {

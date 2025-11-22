@@ -16,7 +16,7 @@
                 <p class="about_text">
                 Az oldal működésének lényege, hogy a felhasználók együtt tudják gazdagítani ezt a virtuális receptkönyvet. Amely receptnél nincs elkészítés, azokat a bejelentkezett felhasználók saját bevált elkészítés alapján kiegészíthetik leírásokkal. Ezzel bátorítva az olvasóinkat, hogy nyugodtan eltérhetnek a receptektől, hiszen a felhasználók által tapasztalt különböző elkészítési módokból tanulhatunk. Kellemes időtöltést a konyhában, és jó étvágyat az ételhez!
                 </p>
-                <div class="read_bt_1"><a href="#">Read More</a></div>
+              
             </div>
         </div>
     </div>
