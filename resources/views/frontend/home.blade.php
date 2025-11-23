@@ -5,7 +5,7 @@
 @section('content')
 
 
-use  
+
 
 <!-- banner section start --> 
 <div class="banner_section layout_padding">
@@ -89,7 +89,7 @@ use
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <h1 class="testimonial_taital">Testimonial</h1>
+                  <h1 class="testimonial_taital">Legújabb receptjeink</h1>
                </div>
             </div>
             <div class="testimonial_section_2">
@@ -97,23 +97,26 @@ use
                   <div class="col-md-12">
                      <div class="testimonial_box">
                         <div id="main_slider" class="carousel slide" data-ride="carousel">
-                           <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                 <p class="testimonial_text">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint</p>
-                                 <h4 class="client_name">Marri Fen</h4>
-                                 <div class="client_img"><img src="images/client-img.png"></div>
-                              </div>
-                              <div class="carousel-item">
-                                 <p class="testimonial_text">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint</p>
-                                 <h4 class="client_name">Marri Fen</h4>
-                                 <div class="client_img"><img src="images/client-img.png"></div>
-                              </div>
-                              <div class="carousel-item">
-                                 <p class="testimonial_text">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint</p>
-                                 <h4 class="client_name">Marri Fen</h4>
-                                 <div class="client_img"><img src="images/client-img.png"></div>
-                              </div>
-                           </div>
+                        <div class="carousel-inner">
+    @foreach($latestEtelek as $index => $etel)
+        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+        <p class="testimonial_text">{{ ucfirst($etel->kategoria->nev ?? 'N/A') }}</p>
+            <h4 class="client_name">{{ ucfirst($etel->nev) }}</h4>
+            <div class="client_img">
+            <img src="{{ $etel->kep ? asset($etel->kep) : asset('images/default_etel.png') }}" 
+     alt="{{ $etel->nev }}" 
+     class="latest-recept-img">
+
+     <div class="mt-2">
+        <a href="{{ route('etel.megnezem', $etel->id) }}" class="btn btn-sm btn-primary"style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">
+            Megnézem
+        </a>
+    </div>
+
+</div>
+        </div>
+    @endforeach
+</div>
                            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
                            <i class="fa fa-angle-left"></i>
                            </a>
@@ -134,13 +137,13 @@ use
       <div class="row">
          <div class="col-md-4">
             <div class="contact_main">
-               <h1 class="contact_taital">Contact Us</h1>
+               <h1 class="contact_taital">Kapcsolat</h1>
 
                <form action="{{ route('kapcsolat.send') }}" method="POST">
                   @csrf
 
                   <div class="form-group">
-                     <input type="text" class="email-bt" placeholder="Name" name="name" required>
+                     <input type="text" class="email-bt" placeholder="Név" name="name" required>
                   </div>
 
                   <div class="form-group">
@@ -148,7 +151,7 @@ use
                   </div>
 
                   <div class="form-group">
-                  <input type="text" id="phone" class="email-bt" placeholder="Phone Number" name="phone">
+                  <input type="text" id="phone" class="email-bt" placeholder="Mobil" name="phone">
 
 <script>
 document.getElementById('phone').addEventListener('input', function () {
@@ -159,11 +162,11 @@ document.getElementById('phone').addEventListener('input', function () {
                   </div>
 
                   <div class="form-group">
-                     <textarea class="massage-bt" placeholder="Message" rows="5" name="message" required></textarea>
+                     <textarea class="massage-bt" placeholder="Üzenet" rows="5" name="message" required></textarea>
                   </div>
 
-                  <button type="submit" class="main_bt" style="border:none; width:100%; display:block; text-align:center;">
-                     SEND
+                  <button type="submit" class="main_bt" style="border:none; width:100%; display:block; text-align:center;"style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">
+                     KÜLDÉS
                   </button>
                </form>
 
@@ -176,39 +179,31 @@ document.getElementById('phone').addEventListener('input', function () {
                   <li>
                      <a href="#">
                      <span class="padding_left_10 active"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                     Making this the first true
+                     
                      </a>
                   </li>
                   <li>
                      <a href="#">
                      <span class="padding_left_10"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                     Call : +01 1234567890
+                     Call : +36....
                      </a>
                   </li>
                   <li>
                      <a href="#">
                      <span class="padding_left_10"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                     Email : demo@gmail.com
+                     Email : elek1234666@gmail.com
                      </a>
                   </li>
                </ul>
             </div>
 
             <div class="mail_main">
-               <h3 class="newsletter_text">Newsletter</h3>
-               <div class="form-group">
-                  <textarea class="update_mail" placeholder="Enter Your Email" rows="5"></textarea>
-                  <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-               </div>
+              
+            
             </div>
 
             <div class="footer_social_icon">
-               <ul>
-                  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-               </ul>
+              
             </div>
          </div>
       </div>
@@ -217,11 +212,7 @@ document.getElementById('phone').addEventListener('input', function () {
 <!-- contact section end -->
 
       <!-- copyright section start -->
-      <div class="copyright_section">
-         <div class="container">
-            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
-         </div>
-      </div>
+    
       <!-- copyright section end -->
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>

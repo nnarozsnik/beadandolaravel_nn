@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\MessageController;
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 
 
 Route::get('/', function () {
@@ -72,6 +73,11 @@ Route::middleware('auth')->group(function() {
     Route::post('/etelek/store', [EtelController::class, 'storeNew'])->name('etelek.storeNew');
     Route::get('/etelek/sajat', [EtelController::class, 'sajatReceptjeim'])->name('etelek.sajat');
     Route::delete('/etelek/{id}', [EtelController::class, 'destroy'])->name('etelek.destroy');
+
+   
+    Route::get('/admin/etelek_diagram', [App\Http\Controllers\AdminController::class, 'etelekDiagram'])
+    ->name('admin.etelek-diagram');
+
 });
 
 
@@ -82,3 +88,5 @@ Route::get('/logout-page', function () {
 
 
 Route::post('/contact', [ContactController::class, 'store'])->name('kapcsolat.send');
+
+Route::get('/messages/sent', [MessageController::class, 'sent'])->name('messages.sent');

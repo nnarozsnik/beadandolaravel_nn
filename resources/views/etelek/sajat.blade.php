@@ -59,7 +59,7 @@
                 @endif
 
                 <div class="text-center mt-4">
-                    <a href="{{ route('etelek.create') }}" class="btn btn-success">Új recept feltöltése</a>
+                    <a href="{{ route('etelek.create') }}" class="btn btn-success"style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">Új recept feltöltése</a>
                 </div>
 
             </div>

@@ -1089,13 +1089,23 @@ textarea#comment.update_mail::placeholder {
 
 /* copyright section start */
 
-.copyright_section {
-    width: 100%;
-    float: left;
-    background-color: #262526;
-    height: auto;
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
+.main_content {
+    flex: 1;
+}
+
+
+.copyright_section {
+    background-color: #000000;
+    text-align: center;
+    padding: 10px 0;
+}
 .copyright_text {
     width: 100%;
     float: left;
@@ -1183,7 +1193,13 @@ textarea#comment.update_mail::placeholder {
     border-radius: 8px !important;
 }
 
-
+.latest-recept-img {
+    max-height: 150px;
+    width: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
 
 
 

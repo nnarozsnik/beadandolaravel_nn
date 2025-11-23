@@ -45,9 +45,7 @@
 </li>
 
                        
-                        <li class="nav-item {{ request()->routeIs('blog') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url ('/blog') }}">Blog</a>
-                     </li>
+                       
                      <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url ('/contact') }}">Kapcsolat</a>
                         </li>
@@ -68,18 +66,19 @@
             <a class="nav-link" href="{{ route('login') }}">Login</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link btn btn-primary text-white" href="{{ route('register') }}">Regisztráció</a>
+            <a class="nav-link btn btn-primary text-white" style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;" href="{{ route('register') }}">Regisztráció</a>
         </li>
     @endguest
 
     @auth
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle {{ request()->routeIs('messages.*') ? 'active' : '' }}" 
+        href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             @if(Auth::user()->role === 'admin')
-        <li><a class="dropdown-item" href="{{ url('/admin') }}">Admin Panel</a></li>
+        <li><a class="dropdown-item" href="{{ route('admin.etelek-diagram') }}">Admin Panel</a></li>
         @endif
         <a class="dropdown-item" href="{{ route('messages.index') }}">Üzenetek</a>
                 <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profil</a></li>
@@ -107,11 +106,7 @@
     </div>
 
     <!-- FOOTER -->
-    <div class="footer_section">
-        <div class="container">
-            <p class="copyright_text">==============</p>
-        </div>
-    </div>
+    
 
     
 
@@ -132,4 +127,9 @@
 
 
 </body>
+<div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
+         </div>
+      </div>
 </html>

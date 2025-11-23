@@ -54,7 +54,7 @@
                 <input type="text" name="egyseg[]" class="form-control" placeholder="Egység pl.: g, db" required>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-success add-hozzavalo">+</button>
+                <button type="button" class="btn btn-success add-hozzavalo"style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">+</button>
             </div>
         </div>
     </div>
@@ -78,6 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<button type="submit" class="btn btn-success mt-3">Recept feltöltése</button>
+<button type="submit" class="btn btn-success mt-3"style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">Recept feltöltése</button>
+
+                </div>
+             </div>
+         </div>
+    </div>
+
 
 @endsection

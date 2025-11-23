@@ -38,4 +38,11 @@ class MessageController extends Controller
 
         return redirect()->route('messages.index')->with('success', 'Üzenet elküldve!');
     }
+
+    public function sent()
+{
+    $sentMessages = auth()->user()->sentMessages()->orderBy('created_at', 'desc')->get();
+
+    return view('frontend.messages.sent', compact('sentMessages'));
+}
 }

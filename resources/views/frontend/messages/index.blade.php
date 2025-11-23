@@ -15,7 +15,9 @@
                     <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
 
-                <a href="{{ route('messages.create') }}" class="btn btn-primary mb-3">Új üzenet küldése</a>
+                <a href="{{ route('messages.create') }}" class="btn btn-primary mb-3"style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">Új üzenet küldése</a>
+
+                <a href="{{ route('messages.sent') }}" class="btn mb-3" style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">Elküldött üzeneteim</a>
 
                 <div class="table-responsive">
                     <table class="table table-bordered">
