@@ -126,4 +126,49 @@ public function destroy($id)
 }
 
 
+public function edit($id)
+{
+    $etel = Etel::where('user_id', auth()->id())->findOrFail($id); // csak a saját recept
+    $kategoriak = Kategoria::all();
+    $hozzavalok = Hozzavalo::all();
+
+    return view('etelek.create', compact('etel', 'kategoriak', 'hozzavalok'));
+}
+
+public function update(Request $request, $id)
+{
+    $etel = Etel::where('user_id', auth()->id())->findOrFail($id);
+
+    $request->validate([
+        'nev' => 'required|string|max:255',
+        'kategoriaid' => 'required|exists:kategoria,id',
+        'hozzavalo' => 'required|array',
+        'hozzavalo.*' => 'required|string',
+        'mennyiseg' => 'required|array',
+        'mennyiseg.*' => 'required|numeric',
+        'egyseg' => 'required|array',
+        'egyseg.*' => 'nullable|string',
+    ]);
+
+    $etel->update([
+        'nev' => $request->nev,
+        'kategoriaid' => $request->kategoriaid,
+    ]);
+
+
+    $etel->hozzavalok()->detach();
+    for ($i = 0; $i < count($request->hozzavalo); $i++) {
+        $hozzavalo = Hozzavalo::firstOrCreate(['nev' => $request->hozzavalo[$i]]);
+        Hasznalt::create([
+            'etelid' => $etel->id,
+            'hozzavaloid' => $hozzavalo->id,
+            'mennyiseg' => $request->mennyiseg[$i],
+            'egyseg' => $request->egyseg[$i] ?? null,
+        ]);
+    }
+
+    return redirect()->route('etelek.sajat')->with('success', 'Recept sikeresen frissítve!');
+}
+
+
 }

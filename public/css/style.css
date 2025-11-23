@@ -218,8 +218,11 @@ button {
     background-image: url(../images/banner-bg.png);
     height: auto;
     background-size: 100%;
+   
     background-repeat: no-repeat;
 }
+
+
 
 .header_bg {
     background: #ffffff;
@@ -247,6 +250,9 @@ button {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link {
     color: #fc95c4;
+    border: 2px solid rgb(250, 199, 199); 
+    border-radius: 60%; 
+    -webkit-text-stroke: 1px rgb(248, 221, 221);
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
@@ -371,6 +377,7 @@ button {
 
 .carousel-indicators .active {
     color: #fc95c4;
+
 }
 
 .carousel-indicators {
@@ -1219,4 +1226,11 @@ html, body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+
+
+.table-responsive {
+    overflow-x: hidden;
 }

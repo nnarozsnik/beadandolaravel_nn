@@ -46,12 +46,18 @@
                                         @endif
                                     </td>
                                     <td>
+                                    <a href="{{ route('etelek.edit', $etel->id) }}" class="btn btn-warning btn-sm mb-1"style="
+        background-color:rgb(247, 155, 119); 
+        border: 2px solid rgb(247, 155, 119); 
+        color: #fff;">Szerkesztés</a>
                                         <form method="POST" action="{{ route('etelek.destroy', $etel->id) }}" onsubmit="return confirm('Biztos törölni akarod ezt a receptet?');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">Törlés</button>
                                         </form>
+                                    
                                     </td>
+                                    
                                 </tr>
                             @endforeach
                         </tbody>

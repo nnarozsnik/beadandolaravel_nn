@@ -7,8 +7,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-
+            <div class="text-center mb-3">
+    <a href="{{ route('messages.index') }}" class="btn" 
+       style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">
+        ← Vissza az üzenetekhez
+    </a>
+</div>
                 <h1>Elküldött üzeneteim</h1>
+                
 
                 <div class="table-responsive">
                     <table class="table table-bordered">
@@ -34,6 +40,12 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            {{ $sentMessages->links('pagination::bootstrap-4') }}
+        </div>
+    </div>
 
             </div>
         </div>

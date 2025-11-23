@@ -31,6 +31,7 @@
                 <div class="row mt-3">
                <div class="col-md-12 text-center">
                <a href="{{ route('kategoriak.show', $kategoria->id) }}" class="btn btn-pink">További receptek</a>
+               <div style="height:50px;"></div>
                </div>
             </div>
             </div>
@@ -40,11 +41,7 @@
 @endforeach
       <!-- cream sectuion end -->
       <!-- copyright section start -->
-      <div class="copyright_section margin_top90">
-         <div class="container">
-            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
-         </div>
-      </div>
+    
       <!-- copyright section end -->
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>

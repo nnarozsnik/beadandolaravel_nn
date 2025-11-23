@@ -29,8 +29,12 @@
         <div class="row mt-3">
     <div class="col-md-12 text-center">
         {{ $etelek->links('pagination::bootstrap-4') }}
+
+        <div style="height:50px;"></div>
     </div>
 </div>
     </div>
 </div>
+
 @endsection
+

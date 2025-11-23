@@ -73,7 +73,8 @@ Route::middleware('auth')->group(function() {
     Route::post('/etelek/store', [EtelController::class, 'storeNew'])->name('etelek.storeNew');
     Route::get('/etelek/sajat', [EtelController::class, 'sajatReceptjeim'])->name('etelek.sajat');
     Route::delete('/etelek/{id}', [EtelController::class, 'destroy'])->name('etelek.destroy');
-
+    Route::get('/etelek/{id}/edit', [EtelController::class, 'edit'])->name('etelek.edit');
+    Route::put('/etelek/{id}', [EtelController::class, 'update'])->name('etelek.update');
    
     Route::get('/admin/etelek_diagram', [App\Http\Controllers\AdminController::class, 'etelekDiagram'])
     ->name('admin.etelek-diagram');

@@ -42,6 +42,11 @@
                             @endforelse
                         </tbody>
                     </table>
+                    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            {{ $messages->links('pagination::bootstrap-4') }}
+        </div>
+    </div>
                 </div>
                 @if(auth()->user()?->role === 'admin')
                 <div class="table-responsive">
@@ -78,6 +83,11 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            {{ $contactMessages->links('pagination::bootstrap-4') }}
+        </div>
+    </div>
             @endif
 
             </div>

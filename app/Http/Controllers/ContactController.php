@@ -45,7 +45,8 @@ class ContactController extends Controller
         $messages = ContactMessage::where('user_id', auth()->id())
                         ->orWhere('user_id', null)
                         ->latest()
-                        ->get();
+                        ->get()
+                        ->paginate(3);
     
         return view('messages.index', compact('messages'));
     }

@@ -7,6 +7,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 text-center">
+            <div class="text-center mb-3">
+    <a href="{{ route('messages.index') }}" class="btn" 
+       style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">
+        ← Vissza az üzenetekhez
+    </a>
+</div>
 
                 <h1 class="mb-4">Új üzenet küldése</h1>
 
