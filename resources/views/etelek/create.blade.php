@@ -70,7 +70,8 @@
                                     </div>
                                     <div class="col-auto">
                                         <button type="button" class="btn btn-success add-hozzavalo"
-                                                style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">+</button>
+                                                style="background-color: #fc95c4; border: 1px solid #fc95c4; color: white;">+</button>
+                                                <button type="button" class="btn btn-danger remove-hozzavalo" style="width: 35px; text-align:center; margin-left: 5px;">-</button>
                                     </div>
                                 </div>
                             @endforeach
@@ -88,14 +89,31 @@
                                     newRow.querySelectorAll('input').forEach(input => input.value = '');
                                     container.appendChild(newRow);
                                 }
+                                if(e.target.classList.contains('remove-hozzavalo')) {
+                                const row = e.target.closest('.hozzavalo-row'); 
+                                    if(container.querySelectorAll('.hozzavalo-row').length > 1) {
+                             row.remove();
+            }
+}
+        
                             });
                         });
                     </script>
 
-                    <button type="submit" class="btn btn-success mt-3"
-                            style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">
-                        {{ isset($etel) ? 'Módosítás mentése' : 'Recept feltöltése' }}
-                    </button>
+<div class="d-flex justify-content-center gap-2 mt-3">
+    <button type="submit" class="btn"
+            style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white; margin-right: 15px;">
+        {{ isset($etel) ? 'Módosítás mentése' : 'Recept feltöltése' }}
+    </button>
+
+    @if(isset($etel))
+        <a href="{{ route('etelek.sajat') }}" 
+           class="btn"
+           style="background-color: #ffffff; border: 2px solid #fc95c4; color: #fc95c4; margin-left: 15px;">
+            Mégse
+        </a>
+    @endif
+</div>
 
                 </form>
             </div>

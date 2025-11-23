@@ -49,6 +49,8 @@
                      <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url ('/contact') }}">Kapcsolat</a>
                         </li>
+
+                       
                         @auth
     <li class="nav-item">
         <a class="nav-link {{ request()->routeIs('etelek.create') ? 'active' : '' }}" href="{{ route('etelek.create') }}">Új recept feltöltése</a>
@@ -69,6 +71,11 @@
             <a class="nav-link btn btn-primary text-white" style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;" href="{{ route('register') }}">Regisztráció</a>
         </li>
     @endguest
+    
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('kereses') }}">🔍</a>
+</li>
+
 
     @auth
         <li class="nav-item dropdown">
@@ -90,9 +97,11 @@
             </ul>
         </li>
     @endauth
+    
 </ul>
 </div>
 </div>
+
                      <div class="fa fa-search form-control-feedback"></div>
                   </form>
                 </div>

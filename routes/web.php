@@ -15,6 +15,8 @@ use App\Http\Controllers\MessageController;
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KeresesController;
+
 
 
 Route::get('/', function () {
@@ -91,3 +93,4 @@ Route::get('/logout-page', function () {
 Route::post('/contact', [ContactController::class, 'store'])->name('kapcsolat.send');
 
 Route::get('/messages/sent', [MessageController::class, 'sent'])->name('messages.sent');
+Route::get('/kereses', [KeresesController::class, 'index'])->name('kereses');

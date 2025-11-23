@@ -108,10 +108,14 @@ public function storeNew(Request $request)
 
 
     public function sajatReceptjeim()
-{
-    $etelek = Etel::where('user_id', auth()->id())->with('hozzavalok')->get();
-    return view('etelek.sajat', compact('etelek'));
-}
+    {
+        $etelek = Etel::where('user_id', auth()->id())
+                      ->with('hozzavalok')
+                      ->latest()     
+                      ->paginate(6);  
+    
+        return view('etelek.sajat', compact('etelek'));
+    }
 
 public function destroy($id)
 {

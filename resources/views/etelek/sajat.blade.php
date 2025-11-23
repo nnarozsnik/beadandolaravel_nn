@@ -62,10 +62,19 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    <div class="row mt-3">
+    <div class="col-md-12 text-center">
+        {{ $etelek->links('pagination::bootstrap-4') }}
+    </div>
+</div>
+
                 @endif
 
                 <div class="text-center mt-4">
                     <a href="{{ route('etelek.create') }}" class="btn btn-success"style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;">Új recept feltöltése</a>
+            <div style="height:50px;"></div>
+
                 </div>
 
             </div>

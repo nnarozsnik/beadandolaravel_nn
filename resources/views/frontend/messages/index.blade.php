@@ -45,7 +45,9 @@
                     <div class="row mt-3">
         <div class="col-md-12 text-center">
             {{ $messages->links('pagination::bootstrap-4') }}
+            
         </div>
+        
     </div>
                 </div>
                 @if(auth()->user()?->role === 'admin')
@@ -86,6 +88,8 @@
                 <div class="row mt-3">
         <div class="col-md-12 text-center">
             {{ $contactMessages->links('pagination::bootstrap-4') }}
+            <div style="height:50px;"></div>
+
         </div>
     </div>
             @endif
