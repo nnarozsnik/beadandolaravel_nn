@@ -11,9 +11,7 @@ class Hozzavalo extends Model
 
     protected $table = 'hozzavalo';
 
-    public function etelek()
-    {
-        return $this->belongsToMany(Etel::class, 'hasznalt', 'hozzavaloid', 'etelid')
-                    ->withPivot('mennyiseg', 'egyseg');
-    }
+    protected $fillable = ['nev'];
+
+    public $timestamps = false;
 }

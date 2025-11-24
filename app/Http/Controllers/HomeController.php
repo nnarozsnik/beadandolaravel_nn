@@ -24,6 +24,12 @@ class HomeController extends Controller
         }
     }
 
-    return view('frontend.home', compact('randomEtelek'));
+    $latestEtelek = Etel::with('kategoria')
+                        ->orderBy('created_at', 'desc')
+                        ->take(5)
+                        ->get();
+
+
+    return view('frontend.home', compact('randomEtelek', 'latestEtelek'));
 }
 }

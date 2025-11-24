@@ -1,23 +1,23 @@
 import './bootstrap';
-import '../css/app.css';
 
 import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/vue3';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy';
+import { App, plugin } from '@inertiajs/inertia-vue3';
+import LogoutButton from './Components/LogoutButton.vue'; 
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+import 'alpinejs';
 
-createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
-    setup({ el, App, props, plugin }) {
-        return createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .use(ZiggyVue)
-            .mount(el);
-    },
-    progress: {
-        color: '#4B5563',
-    },
-});
+const el = document.getElementById('app');
+
+createApp({
+    render: () => h(App, {
+        initialPage: JSON.parse(el.dataset.page),
+        resolveComponent: name => import(`./Pages/${name}.vue`).then(module => module.default)
+    })
+})
+.use(plugin)
+.component('LogoutButton', LogoutButton) 
+.mount(el);
+

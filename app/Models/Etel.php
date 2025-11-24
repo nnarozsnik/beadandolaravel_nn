@@ -36,6 +36,8 @@ public function getKepUrlAttribute()
 
 
 
-protected $fillable = ['nev', 'kategoriaid', 'kep', ];
+protected $fillable = ['nev', 'kategoriaid', 'kep', 'user_id' ];
+
+
 
 }

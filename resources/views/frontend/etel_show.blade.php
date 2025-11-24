@@ -15,7 +15,7 @@
                 <h3>Hozzávalók</h3>
                 <ul>
                  @foreach($etel->hozzavalok as $hozzavalo)
-                 <li>{{ $hozzavalo->nev }} - {{ $hozzavalo->pivot->mennyiseg }} {{ $hozzavalo->pivot->egyseg }}</li>
+                 <li> {{ $hozzavalo->pivot->mennyiseg }} {{ $hozzavalo->pivot->egyseg }} {{ $hozzavalo->nev }} </li>
                  @endforeach
                 </ul>
 

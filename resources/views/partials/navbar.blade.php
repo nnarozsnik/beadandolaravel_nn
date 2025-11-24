@@ -30,8 +30,18 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <div class="login_bt"><a href="#">Login <i class="fa fa-user" aria-hidden="true"></i></a></div>
-                    <div class="fa fa-search form-control-feedback"></div>
+                <div class="login_bt">
+                        @guest
+                            <a href="{{ route('login') }}">Login <i class="fa fa-user"></i></a>
+                        @endguest
+
+                        @auth
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-link p-0 m-0 align-baseline">Kijelentkezés</button>
+                            </form>
+                        @endauth
+
                 </form>
             </div>
         </nav>

@@ -218,8 +218,11 @@ button {
     background-image: url(../images/banner-bg.png);
     height: auto;
     background-size: 100%;
+   
     background-repeat: no-repeat;
 }
+
+
 
 .header_bg {
     background: #ffffff;
@@ -247,6 +250,9 @@ button {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link {
     color: #fc95c4;
+    border: 2px solid rgb(250, 199, 199); 
+    border-radius: 60%; 
+    -webkit-text-stroke: 1px rgb(248, 221, 221);
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
@@ -371,6 +377,7 @@ button {
 
 .carousel-indicators .active {
     color: #fc95c4;
+
 }
 
 .carousel-indicators {
@@ -897,7 +904,7 @@ button {
     background-color: transparent !important;
     border-bottom: 1px solid #6d6d6d !important;
     border: 0px;
-    text-transform: uppercase;
+  
 }
 
 input.email-bt::placeholder {
@@ -913,7 +920,7 @@ input.email-bt::placeholder {
     background-color: transparent !important;
     border-bottom: 1px solid #6d6d6d !important;
     border: 0px;
-    text-transform: uppercase;
+   
 }
 
 textarea#comment::placeholder {
@@ -1054,7 +1061,7 @@ textarea#comment::placeholder {
     display: block;
     margin-top: 10px;
     border: 0px;
-    text-transform: uppercase;
+ 
 }
 
 textarea#comment.update_mail::placeholder {
@@ -1089,13 +1096,23 @@ textarea#comment.update_mail::placeholder {
 
 /* copyright section start */
 
-.copyright_section {
-    width: 100%;
-    float: left;
-    background-color: #262526;
-    height: auto;
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
+.main_content {
+    flex: 1;
+}
+
+
+.copyright_section {
+    background-color: #000000;
+    text-align: center;
+    padding: 10px 0;
+}
 .copyright_text {
     width: 100%;
     float: left;
@@ -1183,7 +1200,13 @@ textarea#comment.update_mail::placeholder {
     border-radius: 8px !important;
 }
 
-
+.latest-recept-img {
+    max-height: 150px;
+    width: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
 
 
 
@@ -1203,4 +1226,11 @@ textarea#comment.update_mail::placeholder {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+
+
+.table-responsive {
+    overflow-x: hidden;
 }

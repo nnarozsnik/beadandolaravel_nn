@@ -44,18 +44,67 @@
     </div>
 </li>
 
-                        <li class="nav-item {{ request()->routeIs('services') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ url ('/services') }}">Services</a>
-                        </li>
-                        <li class="nav-item {{ request()->routeIs('blog') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ url ('/blog') }}">Blog</a>
-                     </li>
+                       
+                       
                      <li class="nav-item {{ request()->routeIs('contact') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ url ('/contact') }}">Kapcsolat</a>
                         </li>
+
+                        <li class="nav-item">
+    <a class="nav-link" href="{{ route('kereses') }}">🔍</a>
+</li>
+                        @auth
+    <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('etelek.create') ? 'active' : '' }}" href="{{ route('etelek.create') }}">Új recept feltöltése</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('etelek.sajat') ? 'active' : '' }}" href="{{ route('etelek.sajat') }}">Saját receptjeim</a>
+    </li>
+
+
+    
+@endauth
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
-                     <div class="login_bt"><a href="#">Login <span style="color: #222222;"><i class="fa fa-user" aria-hidden="true"></i></span></a></div>
+                   
+                    <ul class="navbar-nav ms-auto">
+    @guest
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-primary text-white" style="background-color: #fc95c4; border: 2px solid #fc95c4; color: white;" href="{{ route('register') }}">Regisztráció</a>
+        </li>
+    @endguest
+    
+
+
+
+    @auth
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle {{ request()->routeIs('messages.*') ? 'active' : '' }}" 
+        href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ Auth::user()->name }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            @if(Auth::user()->role === 'admin')
+        <li><a class="dropdown-item" href="{{ route('admin.etelek-diagram') }}">Admin Panel</a></li>
+        @endif
+        <a class="dropdown-item" href="{{ route('messages.index') }}">Üzenetek</a>
+                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profil</a></li>
+                
+                <li>
+           
+            <a class="dropdown-item" href="{{ route('logout-page') }}">Kijelentkezés</a>
+        </li>
+            </ul>
+        </li>
+    @endauth
+    
+</ul>
+</div>
+</div>
+
                      <div class="fa fa-search form-control-feedback"></div>
                   </form>
                 </div>
@@ -69,24 +118,30 @@
     </div>
 
     <!-- FOOTER -->
-    <div class="footer_section">
-        <div class="container">
-            <p class="copyright_text">==============</p>
-        </div>
-    </div>
+    
 
     
 
-    <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
-      <!-- javascript --> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script src="{{ asset('js/plugin.js') }}"></script>
+<script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 
 </body>
+<div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
+         </div>
+      </div>
 </html>

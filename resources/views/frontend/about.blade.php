@@ -14,11 +14,14 @@
             <div class="col-md-6">
                 <h1 class="about_taital">Az oldalról</h1>
                 <p class="about_text">
-                Az oldal működésének lényege, hogy a felhasználók együtt tudják gazdagítani ezt a virtuális receptkönyvet. Amely receptnél nincs elkészítés, azokat a bejelentkezett felhasználók saját bevált elkészítés alapján kiegészíthetik leírásokkal. Ezzel bátorítva az olvasóinkat, hogy nyugodtan eltérhetnek a receptektől, hiszen a felhasználók által tapasztalt különböző elkészítési módokból tanulhatunk. Kellemes időtöltést a konyhában, és jó étvágyat az ételhez!
+                Ez az oldal lehetőséget biztosít a felhasználóknak, hogy saját receptjeiket feltöltsék, szerkesszék és megosszák másokkal. A felhasználók böngészhetik mások ételeit, inspirációt meríthetnek a különböző kategóriákból, és üzenetet is küldhetnek egymásnak. A közösség segítségével folyamatosan bővül a virtuális receptkönyv, így mindenki hozzájárulhat a gasztronómiai ötletek gazdagításához.
+                Az oldal 2025-ben indult.
                 </p>
-                <div class="read_bt_1"><a href="#">Read More</a></div>
+              
             </div>
         </div>
     </div>
 </div>
+
+
 @endsection
