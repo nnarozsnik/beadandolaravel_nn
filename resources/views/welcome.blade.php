@@ -1,1 +1,1 @@
-"<!DOCTYPE html><html><head><title>Laravel</title></head><body></body></html>" 
+<meta http-equiv="refresh" content="0; url={{ route('home') }}">
