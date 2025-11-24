@@ -19,9 +19,7 @@ use App\Http\Controllers\KeresesController;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -46,6 +44,7 @@ Route::get('/blog', [TemplateController::class, 'blog'])->name('blog');
 Route::get('/contact', [TemplateController::class, 'contact'])->name('contact');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/receptek/{id}', [EtelController::class, 'show'])->name('etel.megnezem');
