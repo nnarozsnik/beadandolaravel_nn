@@ -41,6 +41,24 @@ document.getElementById('phone').addEventListener('input', function () {
                   <button type="submit" class="main_bt" style="border:none; width:100%; text-align:center;">
                      KÜLDÉS
                   </button>
+
+                  @if(session('success'))
+    <div id="success-toast" class="alert alert-success" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+        {{ session('success') }}
+    </div>
+
+    <script>
+        setTimeout(function() {
+            const toast = document.getElementById('success-toast');
+            if (toast) {
+                toast.style.transition = 'opacity 0.5s';
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }
+        }, 3000);
+    </script>
+@endif
+
                </form>
             </div>
          </div>

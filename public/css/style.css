@@ -213,13 +213,19 @@ button {
 /* header section start */
 
 .header_section {
-    width: 100%;
-    float: left;
-    background-image: url(../images/banner-bg.png);
-    height: auto;
-    background-size: 100%;
-   
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    width: 100%;
+    min-height: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar {
+    background: transparent !important;
+    position: relative;
+    z-index: 10;
 }
 
 
@@ -462,6 +468,8 @@ button {
     font-weight: bold;
 }
 
+
+
 .bt-megnezem:hover {
     width: 120%;
     float: left;
@@ -473,6 +481,15 @@ button {
     border-radius: 5px;
     font-weight: bold;
 }
+
+.bt-wrapper {
+    width: fit-content;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto; 
+}
+
+
 
 
 .read_bt_1 a:hover {

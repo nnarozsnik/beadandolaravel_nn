@@ -18,10 +18,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KeresesController;
 
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -45,7 +45,6 @@ Route::get('/blog', [TemplateController::class, 'blog'])->name('blog');
 
 Route::get('/contact', [TemplateController::class, 'contact'])->name('contact');
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::get('/receptek/{id}', [EtelController::class, 'show'])->name('etel.megnezem');
@@ -94,3 +93,6 @@ Route::post('/contact', [ContactController::class, 'store'])->name('kapcsolat.se
 
 Route::get('/messages/sent', [MessageController::class, 'sent'])->name('messages.sent');
 Route::get('/kereses', [KeresesController::class, 'index'])->name('kereses');
+
+
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');

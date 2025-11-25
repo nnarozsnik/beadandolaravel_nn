@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('title', $etel->nev)
+@section('title', ucfirst($etel->nev))
 
 @section('content')
 <div class="cream_section layout_padding">

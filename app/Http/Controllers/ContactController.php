@@ -21,9 +21,11 @@ class ContactController extends Controller
         if (auth()->check()) {
             $validated['user_id'] = auth()->id();
         }
-
+        
         
         $contactMessage = ContactMessage::create($validated);
+
+        return back()->with('success', 'Üzenet sikeresen elküldve!');
 
         Mail::raw(
             "Új üzenet érkezett:\n\n".
@@ -45,7 +47,6 @@ class ContactController extends Controller
         $messages = ContactMessage::where('user_id', auth()->id())
                         ->orWhere('user_id', null)
                         ->latest()
-                        ->get()
                         ->paginate(3);
     
         return view('messages.index', compact('messages'));
