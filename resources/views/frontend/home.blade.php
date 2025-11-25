@@ -23,45 +23,43 @@
 
             <div class="carousel-inner">
                 @foreach($randomEtelek as $index => $etel)
-                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h1 class="banner_taital">{{ $etel->kategoria->nev }}</h1>
-                                <p class="banner_text">{{ $etel->nev }}</p>
-                               
-                               
-                                <div class="started_text">
-                               
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                            <div class="banner_img">
-                            @if($etel->kep)
-                           <img src="{{ asset($etel->kep) }}" alt="{{ $etel->nev }}">
-                           @elseif($etel->kategoria && $etel->kategoria->kep)
-                           <img src="{{ asset($etel->kategoria->kep) }}" alt="{{ $etel->kategoria->nev }}">
-                            @else
-                            <img src="{{ asset('images/default_etel.png') }}" alt="Placeholder">
-                            @endif
-                              </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+    <div class="row">
+    <div class="col-sm-6 d-flex flex-column justify-content-center align-items-start">
+    <h1 class="banner_taital">{{ $etel->kategoria->nev }}</h1>
+    <p class="banner_text">{{ $etel->nev }}</p>
+
+    <div class="bt-wrapper mt-3" style="z-index: 10; position: relative;">
+        <a href="{{ url('/receptek/'.$etel->id) }}" class="bt-megnezem">
+            Megnézem
+        </a>
+    </div>
+</div>
+
+        <div class="col-sm-6">
+            <div class="banner_img">
+                @if($etel->kep)
+                    <img src="{{ asset($etel->kep) }}" alt="{{ $etel->nev }}">
+                @elseif($etel->kategoria && $etel->kategoria->kep)
+                    <img src="{{ asset($etel->kategoria->kep) }}" alt="{{ $etel->kategoria->nev }}">
+                @else
+                    <img src="{{ asset('images/default_etel.png') }}" alt="Placeholder">
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
                 @endforeach
             </div>
 
          
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <i class="fa fa-angle-left"></i>
-            </a>
+           
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <i class="fa fa-angle-right"></i>
             </a>
 
         </div>
-        <div class="position-absolute" style="top: 35%; left: 20%;">
-        <a href="{{ url('/receptek/'.$randomEtelek[0]->id) }}" class="bt-megnezem">Megnézem</a>
-    </div>
+       
 
     </div>
 </div>
@@ -233,16 +231,7 @@ document.getElementById('phone').addEventListener('input', function () {
       <!-- copyright section start -->
     
       <!-- copyright section end -->
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
-      <!-- javascript --> 
+   
 
 
 

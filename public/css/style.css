@@ -213,13 +213,19 @@ button {
 /* header section start */
 
 .header_section {
-    width: 100%;
-    float: left;
-    background-image: url(../images/banner-bg.png);
-    height: auto;
-    background-size: 100%;
-   
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    width: 100%;
+    min-height: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar {
+    background: transparent !important;
+    position: relative;
+    z-index: 10;
 }
 
 
@@ -451,28 +457,44 @@ button {
 }
 
 .bt-megnezem {
-    width: 150%;
-    float: left;
+    display: inline-block;        
+            
+    min-width: 120px;            
     font-size: 16px;
     text-align: center;
     background-color: #fc95c4;
-    color: #ffffff;
-    padding: 10px 0px;
+    color: #fff;
+    padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease; 
+    pointer-events: auto;
+    text-align: center;
 }
+
+
 
 .bt-megnezem:hover {
     width: 120%;
-    float: left;
+  
     font-size: 16px;
-    text-align: center;
+   
     background-color: #000000;
     color: #ffffff;
-    padding: 10px 0px;
-    border-radius: 5px;
-    font-weight: bold;
+
+   
+   
 }
+
+.bt-wrapper {
+    width: fit-content;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto; 
+}
+
+
 
 
 .read_bt_1 a:hover {
